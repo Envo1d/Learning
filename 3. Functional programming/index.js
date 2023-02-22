@@ -173,7 +173,7 @@ let hello = () => console.log('hello')
 
 let print = mes => console.log(mes)
 
-let sum = (x, y) => x + y
+let sum1 = (x, y) => x + y
 
 let user = (userName, userAge) => ({ name: userName, age: userAge })
 
@@ -181,3 +181,60 @@ const square = n => {
 	let res = n * n
 	return res
 }
+
+// замыкания
+// Замыкание технически включает три компонента
+// внешняя функция, которая определяет некоторую область видимости и в которой определены некоторые переменные - лексическое окружение
+// переменные (лексическое окружение), которые определены во внешней функции
+// вложенная функция, которая использует эти переменные
+function outer() {
+	var n
+	function inner() {}
+}
+function multiply(n) {
+	var x = n
+	return function (m) {
+		return x * m
+	}
+}
+var fn1 = multiply(5)
+var res1 = fn(6)
+var res2 = multiply(5)(6) // 30
+console.log(res1)(
+	// 30
+	// fn1 - замыкание со своим окружением
+
+	// Самовызывающиеся функции - Immediately Invoked Function Expression (IIFE)
+	(function () {
+		console.log('Привет мир')
+	})()
+)(
+	(function (n) {
+		var result = 1
+		for (var i = 1; i <= n; i++) result *= i
+		console.log('Factorial ' + n + ' = ' + result)
+	})(4)
+)
+
+// Паттерн "Модуль" базируется на замыканиях и состоит из двух компонентов: внешняя функция, которая определяет лексическое окружение, и возвращаемый набор внутренних функций, которые имеют доступ к этому окружению.
+let calculator = (function () {
+	let data = { number: 0 }
+
+	return {
+		sum: function (n) {
+			data.number += n
+		},
+		subtract: function (n) {
+			data.number -= n
+		},
+		display: function () {
+			console.log('Result: ', data.number)
+		},
+	}
+})()
+calculator.sum(10)
+calculator.sum(3)
+calculator.display() // Result: 13
+calculator.subtract(4)
+calculator.display() // Result: 9
+// Hoisting представляет процесс доступа к переменным до их определения. Возможно, данная концепция выглядит немного странно, но она связана с работой компилятора JavaScript. Компиляция кода происходит в два прохода. При первом проходе компилятор получает все объявления переменных, все идентификаторы. При этом никакой код не выполняется, методы не вызываются. При втором проходе собственно происходит выполнение. И даже если переменная определена после непосредственного использования, ошибки не возникнет, так как при первом проходе компилятору уже известны все переменные.
