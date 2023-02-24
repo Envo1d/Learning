@@ -160,3 +160,23 @@
 	const flatten3 = people.flat(Infinity)
 	console.log(flatten3) // ['Tom', 'Bob', 'Alice', 'Kate', 'Sam', 'Ann', 'Nick']
 }
+
+{
+	// наследование массивов
+	class Team extends Array {
+		// также можно переопределять стандартные методы массивов
+		constructor(name, ...members) {
+			super(...members)
+			this.name = name
+		}
+	}
+	const barcelona = new Team('Barcelona', 'Tom', 'Sam', 'Bob')
+	console.log(barcelona)
+	for (const person of barcelona) {
+		console.log(person)
+	}
+	barcelona.push('Tim') // добавим один элемент
+	console.log(barcelona) // Team(4) ["Tom", "Sam", "Bob", "Tim"]
+	barcelona.splice(1, 1) // удалим второй элемент
+	console.log(barcelona) // Team(3) ["Tom", "Bob", "Tim"]
+}
