@@ -1,0 +1,205 @@
+.a,
+#b {
+	color: red;
+}
+.mixin-class {
+	.a();
+}
+.mixin-id {
+	#b();
+}
+// () - exclude mixin from css output file
+.my-mixin {
+	color: black;
+}
+.my-other-mixin() {
+	background: white;
+}
+.class {
+	.my-mixin();
+	.my-other-mixin();
+}
+// selector and mixins
+.hover-mix() {
+	&:hover {
+		color: red;
+	}
+}
+button {
+	.hover-mix();
+}
+// namespaces
+#lib() {
+	.mixin() {
+		color: green;
+	}
+}
+.class {
+	#lib.mixin();
+}
+// mixin guards
+#namespace {
+	.mixin() when (@mode = huge) {
+		/* */
+	}
+}
+
+// important
+
+.foo (@bg: #f5f5f5; @color: #900) {
+	background: @bg;
+	color: @color;
+}
+.unimportant {
+	.foo();
+}
+.important {
+	.foo() !important;
+}
+
+// parametric mixins
+.border-radius(@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+#header {
+	.border-radius(4px);
+}
+
+.button {
+	.border-radius(3px);
+}
+
+.input {
+	.border-radius();
+}
+// overloading mixins
+.mixin(@color) {
+	color-1: @color;
+}
+.mixin(@color, @padding: 2) {
+	color-2: @color;
+	padding-2: @padding;
+}
+.mixin(@color, @padding, @margin: 2) {
+	color-3: @color;
+	padding-3: @padding;
+	margin: @margin @margin @margin @margin;
+}
+.some .selector div {
+	.mixin(#008000);
+}
+// @arguments var
+.box-shadow(@x: 0, @y: 0, @blur: 1px, @color: #000) {
+	-webkit-box-shadow: @arguments;
+	-moz-box-shadow: @arguments;
+	box-shadow: @arguments;
+}
+.big-block {
+	.box-shadow(2px, 5px);
+}
+//patter-matching
+.mixin-color(dark, @color) {
+	color: darken(@color, 10%);
+}
+.mixin-color(light, @color) {
+	color: lighten(@color, 10%);
+}
+.mixin-color(@_, @color) {
+	display: block;
+}
+@switch: light;
+
+.color {
+	.mixin-color(@switch, #888);
+}
+// mixins as functions
+.average(@x, @y) {
+	@result: ((@x+ @y)/2);
+}
+
+div {
+	padding: .average(16px, 50px) [ @result];
+}
+
+input {
+	padding: .average(16px, 50px) [];
+}
+
+// recursive mixins
+.loop(@counter) when (@counter > 0) {
+	.loop((@counter - 1));
+	width: (10px * @counter);
+}
+
+a {
+	.loop(5);
+}
+// example
+.generate-columns(4);
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+	.column-@{i} {
+		width: (@i * 100% / @n);
+	}
+	.generate-columns(@n, (@i+1));
+}
+
+// mixin guards
+.mixin-lightness(@a) when (lightness(@a) >= 50%) {
+	background-color: black;
+}
+.mixin-lightness(@a) when (lightness(@a) < 50%) {
+	background-color: white;
+}
+.mixin-lightness(@a) {
+	color: @a;
+}
+
+.class1 {
+	.mixin-lightness(#ddd);
+}
+.class2 {
+	.mixin-lightness(#555);
+}
+
+/*  comparison operators
+>
+>=
+=
+=<
+<
+*/
+
+/*  logical operators
+when
+and
+or = ,
+where not
+*/
+
+/*  type checking functions
+iscolor
+isnumber
+isstring
+iskeyword
+isurl
+
+ispixel
+ispercentage
+isem
+isunit
+*/
+
+// aliasing mixins
+#library() {
+	.colors() {
+		background: green;
+	}
+}
+.box {
+	@alias: #library.colors();
+	@alias();
+}

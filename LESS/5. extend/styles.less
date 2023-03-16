@@ -1,0 +1,45 @@
+.inline {
+	color: red;
+}
+
+nav ul {
+	&:extend(.inline);
+	background: blue;
+}
+
+.bucket {
+	tr {
+		color: blue;
+	}
+}
+
+.some-class:extend(.bucket tr) {
+}
+
+.a.class,
+.class.a,
+.class > a {
+	color: blue;
+}
+.test:extend(.class) {
+} // no matches
+
+.a.b.test,
+.test.c {
+	color: orange;
+}
+.test {
+	&:hover {
+		color: green;
+	}
+}
+.replacement:extend(.test all) {
+}
+
+.back {
+	color: blue;
+}
+
+@{variable}:extend(.back) {
+}
+@variable: .selector;

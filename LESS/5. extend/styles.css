@@ -1,0 +1,29 @@
+.inline,
+nav ul {
+  color: red;
+}
+nav ul {
+  background: blue;
+}
+.bucket tr,
+.some-class {
+  color: blue;
+}
+.a.class,
+.class.a,
+.class > a {
+  color: blue;
+}
+.a.b.test,
+.test.c,
+.a.b.replacement,
+.replacement.c {
+  color: orange;
+}
+.test:hover,
+.replacement:hover {
+  color: green;
+}
+.back {
+  color: blue;
+}

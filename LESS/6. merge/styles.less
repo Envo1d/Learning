@@ -1,0 +1,16 @@
+.mixin() {
+	box-shadow+: inset 0 0 10px #555;
+}
+.test {
+	.mixin();
+	box-shadow+: 0 0 20px black;
+}
+// + - add comma
+// +_ - add space
+.mixin2() {
+	transform+_: scale(2);
+}
+.test2 {
+	.mixin2();
+	transform+_: rotate(15deg);
+}

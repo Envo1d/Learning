@@ -1,0 +1,90 @@
+body {
+  font-size: 18px;
+}
+body ul {
+  font-size: 16px;
+}
+body ul li {
+  font-size: 14px;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+a:hover {
+  color: black;
+}
+a > span {
+  color: grey;
+}
+.input {
+  color: black;
+}
+.input-error {
+  color: red;
+}
+.input-success {
+  color: green;
+}
+.btn {
+  color: #fff;
+}
+.btn + .btn {
+  color: black;
+}
+.btn > .btn {
+  color: red;
+}
+.btn.btn {
+  color: yellow;
+}
+.btn,
+.btn-green {
+  color: green;
+}
+.nav .menu {
+  color: #fff;
+  background: red;
+}
+.home .nav .menu {
+  color: black;
+  background: #fff;
+}
+.header::before,
+.head::before {
+  content: 'SR';
+}
+div,
+p,
+ul,
+li,
+span {
+  color: black;
+}
+div div,
+div p,
+div ul,
+div li,
+div span,
+p div,
+p p,
+p ul,
+p li,
+p span,
+ul div,
+ul p,
+ul ul,
+ul li,
+ul span,
+li div,
+li p,
+li ul,
+li li,
+li span,
+span div,
+span p,
+span ul,
+span li,
+span span {
+  color: gray;
+}

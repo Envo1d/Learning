@@ -1,0 +1,52 @@
+@fontSize: 12px;
+@border: 2px solid #ccc;
+
+@nav: navigation;
+
+@img: './img/';
+
+@property: background;
+@color: color;
+
+@var: "Some text";
+@var1: "var";
+
+a {
+	font-size: @fontSize;
+	display: inline-block;
+	border: @border;
+}
+
+.header-@{nav}{
+	font-size: 20px;
+}
+
+.@{nav}{
+	height: 50px;
+}
+
+#@{nav}{
+	width: 1000px;
+}
+
+body{
+	@{property}-image: url("@{img}rectangle.png");
+	@{property}-size: 100%;
+	@{color}: green;
+}
+
+div::before{
+	content: @@var1;
+}
+
+header{
+	background: @backgroundColor;
+	@backgroundColor: blue;
+	li{
+		@backgroundColor: gray;
+		background: @backgroundColor;
+		@backgroundColor: red;
+	}
+}
+
+@backgroundColor: red;

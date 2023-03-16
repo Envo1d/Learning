@@ -1,0 +1,26 @@
+.nav {
+  color: #000;
+}
+.nav ul {
+  color: #fff;
+}
+.nav ul li {
+  display: inline-block;
+}
+.nav ul li a {
+  text-decoration: none;
+}
+.btn {
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  border: 2px solid #ccc;
+  padding: 5px 15px;
+}
+.menu a {
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+  border: 2px solid #ccc;
+  padding: 5px 15px;
+}
