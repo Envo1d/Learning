@@ -1,0 +1,278 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Varela Round', sans-serif;
+}
+
+.base {
+    padding: 10px;
+    width: 380px;
+    margin: 0 auto;
+}
+
+.header {
+    width: 380px;
+    height: 200px;
+    border-radius: 15px 15px 8px 8px;
+    border-bottom: 1px solid;
+    background-color: rgb(37, 33, 59);
+    position: relative;
+}
+
+#showAll {
+    font-style: normal;
+    font-size: large;
+    position: absolute;
+    top: 25px;
+    left: 30px;
+    transform: scale(1);
+    transition-delay: 0;
+    transition: all 0.6s;
+    color: white;
+}
+
+#showComp {
+    font-style: normal;
+    font-size: large;
+    position: absolute;
+    top: 55px;
+    left: 30px;
+    transform: scale(1);
+    transition-delay: 0;
+    transition: all 0.6s;
+    color: white;
+}
+
+#showInc {
+    font-style: normal;
+    font-size: large;
+    position: absolute;
+    top: 85px;
+    left: 30px;
+    transform: scale(1);
+    transition-delay: 0;
+    transition: all 0.6s;
+    color: white;
+}
+
+#showAll:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition-delay: 0;
+    transition: all 0.6s;
+}
+
+#showAll:active {
+    transform: scale(1.5);
+    transition-delay: 0;
+    transition: all 0.2s;
+}
+
+#showComp:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition-delay: 0;
+    transition: all 0.6s;
+}
+
+#showComp:active {
+    transform: scale(1.5);
+    transition-delay: 0;
+    transition: all 0.2s;
+}
+
+#showInc:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    transition-delay: 0;
+    transition: all 0.6s;
+}
+
+#showInc:active {
+    transform: scale(1.5);
+    transition-delay: 0;
+    transition: all 0.2s;
+}
+
+.clear {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.clear i {
+    font-size: 30px;
+    color: rgb(255, 255, 255);
+    transform: rotate(-60deg);
+    transition-delay: 0;
+    transition: all 0.6s;
+}
+
+.clear i:hover {
+    cursor: pointer;
+    text-shadow: 1px 3px 5px #000;
+    transform: rotate(60deg);
+    transition-delay: 0;
+    transition: all 0.6s;
+}
+
+.clear i:active {
+    transform: scale(0.7);
+    transition-delay: 0;
+    transition: all 0.2s;
+}
+
+#date {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: rgb(37, 33, 59);
+    font-size: 30px;
+    font-family: 'Varela Round', sans-serif;
+    cursor: default;
+    color: white;
+}
+
+.items {
+    width: 380px;
+    height: 350px;
+    max-height: 350px;
+    background-color: rgba(78, 112, 184, 0.473);
+    overflow: auto;
+    border-bottom: 1px solid;
+    border-radius: 8px;
+}
+
+.items::-webkit-scrollbar {
+    display: none;
+}
+
+.items ul {
+    padding: 0;
+    margin: 0;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.items ul li {
+    opacity: 0;
+    transition: 1s;
+    padding: 0;
+    margin: 0;
+    animation: show 0.45s 1;
+    animation-fill-mode: forwards;
+    animation-delay: 0.1s;
+}
+
+.item {
+    width: 380px;
+    height: 45px;
+    min-height: 45px;
+    position: relative;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    list-style: none;
+}
+
+.item i.co {
+    position: absolute;
+    font-size: 25px;
+    padding-left: 5px;
+    color: rgb(255, 255, 255);
+    left: 15px;
+    top: 10px;
+}
+
+.item i.co:hover {
+    cursor: pointer;
+}
+
+.item p.task {
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    font-size: 22px;
+    left: 60px;
+    top: 10px;
+    max-width: 285px;
+}
+
+.line {
+    text-decoration: line-through;
+    color: #ccc;
+}
+
+.item i.de {
+    position: absolute;
+    color: rgb(255, 255, 255);
+    font-size: 25px;
+    right: 13px;
+    top: 10px;
+    transform: scale(1);
+    transition-delay: 0;
+    transition: all 0.3s;
+}
+
+.item i.de:hover {
+    color: #6000af;
+    cursor: pointer;
+    transform: scale(0.9);
+    transition-delay: 0;
+    transition: all 0.3s;
+}
+
+.addNew {
+    position: relative;
+    width: 360px;
+    height: 40px;
+    background-color: rgba(78, 112, 184, 0.473);
+    padding: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.addNew i {
+    position: absolute;
+    font-size: 40px;
+    color: #4162f6;
+    transform: scale(1);
+    transition-delay: 0;
+    transition: all 0.3s;
+}
+
+.addNew i:hover {
+    transform: scale(0.8);
+    transition-delay: 0;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.addNew i:active {
+    transform: scale(0.6);
+    transition-delay: 0;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.addNew input {
+    position: absolute;
+    left: 50px;
+    height: 35px;
+    width: 310px;
+    background-color: transparent;
+    border: none;
+    font-size: 20px;
+    padding-left: 10px;
+}
+
+.addNew input::placeholder {
+    color: #4162f6;
+}
