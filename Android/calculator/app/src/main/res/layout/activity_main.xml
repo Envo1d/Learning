@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/param3"
+        app:layout_constraintTop_toTopOf="@+id/param3"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/param3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="c = "
+        app:layout_constraintStart_toStartOf="@+id/param"
+        app:layout_constraintTop_toBottomOf="@+id/param2"
+        tools:visibility="invisible" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/param2"
+        app:layout_constraintTop_toTopOf="@+id/param2"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/param2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="b = "
+        app:layout_constraintStart_toStartOf="@+id/param"
+        app:layout_constraintTop_toBottomOf="@+id/param"
+        tools:visibility="invisible" />
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/shapes"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:spinnerMode="dropdown"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/param"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="R = "
+        app:layout_constraintStart_toStartOf="@+id/shapes"
+        app:layout_constraintTop_toBottomOf="@+id/shapes" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="-16dp"
+        android:ems="10"
+        android:inputType="numberDecimal"
+        app:layout_constraintStart_toEndOf="@+id/param"
+        app:layout_constraintTop_toTopOf="@+id/param" />
+
+    <TextView
+        android:id="@+id/res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Result:"
+        app:layout_constraintStart_toStartOf="@+id/param"
+        app:layout_constraintTop_toBottomOf="@+id/btnCal" />
+
+    <TextView
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/res"
+        app:layout_constraintTop_toTopOf="@+id/res" />
+
+    <Button
+        android:id="@+id/btnCal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:onClick="calculate"
+        android:text="Calculate"
+        app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal3"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3" />
+</androidx.constraintlayout.widget.ConstraintLayout>
