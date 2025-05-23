@@ -31,15 +31,15 @@ This repository includes tasks in multiple languages, such as:
 
 ## 📂 Folder Structure/programming-tasks
 
-├── android/
-├── go/
-├── html & css/
-├── javascript/
-├── c#/
-├── c++/
-├── node/
-├── postgresql/
-├── README.md
+- android/
+- go/
+- html & css/
+- javascript/
+- c#/
+- c++/
+- node/
+- postgresql/
+- README.md
 
 ## 🏆 Purpose
 
