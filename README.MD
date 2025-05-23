@@ -29,7 +29,7 @@ This repository includes tasks in multiple languages, such as:
 2. Navigate to the repository folder:
 3. Open any programming task in your preferred language and execute it.
 
-## 📂 Folder Structure/programming-tasks
+## 📂 Folder Structure
 
 - android/
 - go/
