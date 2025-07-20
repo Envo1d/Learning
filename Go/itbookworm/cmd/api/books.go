@@ -3,6 +3,9 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
+
+	"github.com/Envo1d/itbookworm/internal/data"
 )
 
 func (app *application) createBookHandler(w http.ResponseWriter, r *http.Request) {
@@ -16,5 +19,18 @@ func (app *application) showBookHandler(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
-	fmt.Fprintf(w, "show the details of book %d\n", id)
+	book := data.Book{
+		ID:        id,
+		CreatedAt: time.Now(),
+		Title:     "Effective Concurrency in Go",
+		Author:    "Burak Serdar",
+		Tags:      []string{"go", "programming", "concurrency"},
+		Pages:     195,
+	}
+
+	err = app.writeJSON(w, http.StatusOK, book, nil)
+	if err != nil {
+		app.logger.Println(err)
+		http.Error(w, "The server could not process your request", http.StatusInternalServerError)
+	}
 }
