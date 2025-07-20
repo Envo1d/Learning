@@ -1,0 +1,1 @@
+select FirstName, LastName from Employees intersect select FirstName, LastName from Customers
