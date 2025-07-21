@@ -28,7 +28,7 @@ func (app *application) showBookHandler(w http.ResponseWriter, r *http.Request) 
 		Pages:     195,
 	}
 
-	err = app.writeJSON(w, http.StatusOK, book, nil)
+	err = app.writeJSON(w, http.StatusOK, envelope{"book": book}, nil)
 	if err != nil {
 		app.logger.Println(err)
 		http.Error(w, "The server could not process your request", http.StatusInternalServerError)

@@ -9,5 +9,5 @@ type Book struct {
 	Title     string    `json:"title"`
 	Year      int32     `json:"year,omitempty"`
 	Tags      []string  `json:"tags,omitempty"`
-	Pages     int32     `json:"pages"`
+	Pages     Pages     `json:"pages,omitempty"`
 }
