@@ -2,7 +2,11 @@ package main
 
 import "fmt"
 
+const Pi = 3.14
+
 func declaring() {
+	const Truth = true
+
 	var age int
 	fmt.Println("Age:", age)
 
@@ -38,4 +42,7 @@ func declaring() {
 		fmt.Println("if Count:", count)
 	}
 	fmt.Println("Count", count)
+
+	fmt.Println("Happy", Pi, "Day")
+	fmt.Println("Go rules?", Truth)
 }

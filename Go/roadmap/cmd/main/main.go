@@ -1,7 +1,11 @@
 package main
 
 func main() {
-	printHello()
+	// printHello()
 
-	declaring()
+	// declaring()
+
+	// dataTypes()
+
+	// functionsLes()
 }
