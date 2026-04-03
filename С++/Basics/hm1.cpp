@@ -31,5 +31,5 @@ void every() {
 void main() 
 {
 	song();
-	evety();
+	every();
 }

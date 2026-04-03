@@ -8,4 +8,8 @@ func main() {
 	// dataTypes()
 
 	// functionsLes()
+
+	// flowControl()
+
+	moreTypes()
 }
