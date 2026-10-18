@@ -1,3 +1,3 @@
-module github.com/Envo1d/tour
+module hello_world
 
-go 1.24.5
+go 1.26.4
