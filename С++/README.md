@@ -1,34 +1,34 @@
-# Учебный архив C++
+# C++ Learning Archive
 
-Домашние задания и практика по C++ за 2019–2021 годы: от консольного вывода и циклов до ООП, STL, паттернов проектирования и численных методов. Это личный архив обучения; в нём сохранены исходные решения, в том числе незавершённые и закомментированные примеры.
+C++ homework and practice from 2019–2021, covering console output, loops, OOP, STL, design patterns, and numerical methods. This personal learning archive preserves the original solutions, including unfinished and commented-out examples.
 
-Имена файлов и проектов отражают содержание вместо порядковых номеров домашних работ. В сборниках несколько упражнений находятся в одном `.cpp`; условия записаны в комментариях. В большинстве перенесённых материалов комментарий `Источник` сохраняет имя исходного файла.
+Files and projects are named by topic rather than homework number. Exercise collections contain several tasks in one `.cpp`, with task descriptions in comments. Most imported materials include a source comment identifying the original file.
 
-## Разделы и примерная сложность
+## Topics and Approximate Difficulty
 
-Сложность указана как ориентир: она зависит от конкретного упражнения и необходимых знаний.
+Difficulty is a guide and depends on the individual exercise and its prerequisites.
 
-| Раздел | Уровень | Темы |
+| Section | Level | Topics |
 | --- | --- | --- |
-| [Basics](Basics/) | Начальный | Консольный ввод и вывод, формулы, условия, циклы, свойства чисел и календари. |
-| [Arrays](Arrays/) | Начальный / средний | Одномерные массивы, матрицы, статистика, сортировки и работа с частями массива. |
-| [Functions](Functions/) | Средний | Функции, перегрузки, шаблоны, системы счисления, уравнения и игра в кости. |
-| [Recursion](Recursion/) | Средний / продвинутый | Рекурсивные вычисления, НОД, степени, диапазоны и обход доски шахматным конём. |
-| [Pointers](Pointers/) | Средний | Арифметика указателей, динамические массивы, операции над множествами, матрицы и телефонный справочник. |
-| [Strings](Strings/) | Средний | Удаление и вставка символов, замены, подсчёт букв и слов, проверка палиндромов. |
-| [Structures](Structures/) | Средний | Структуры автомобилей, каталог книг, поиск, редактирование и сортировка записей. |
-| [Preprocessor](Preprocessor/) | Средний | Макросы и условная компиляция для обработки массивов разных типов. |
-| [OOP](OOP/) | Средний / продвинутый | Классы, конструкторы, копирование, перегрузка операторов, композиция и наследование. |
-| [DataStructures](DataStructures/) | Средний / продвинутый | Очереди, имитационные модели, бинарное дерево, связные списки и шаблонный контейнер. |
-| [Files](Files/) | Средний | Потоки файлов, справочник компаний, анализ текста и генератор экзаменационных вопросов. |
-| [Exceptions](Exceptions/) | Средний | Исключения при конструировании объектов. |
-| [STL](STL/) | Средний | Контейнер vector, стандартные алгоритмы, компараторы, лямбды и хранение данных в файлах. |
-| [Patterns](Patterns/) | Продвинутый | Паттерны «Стратегия» и «Абстрактная фабрика». |
-| [NumericalMethods](NumericalMethods/) | Продвинутый | Численное решение дифференциального уравнения: улучшенный метод Эйлера и Рунге — Кутта. |
+| [Basics](Basics/) | Beginner | Console input and output, formulas, conditions, loops, number properties, and calendars. |
+| [Arrays](Arrays/) | Beginner / intermediate | One-dimensional arrays, matrices, statistics, sorting, and operations on array segments. |
+| [Functions](Functions/) | Intermediate | Functions, overloading, templates, number bases, equations, and a dice game. |
+| [Recursion](Recursion/) | Intermediate / advanced | Recursive calculations, greatest common divisor, powers, ranges, and the knight's tour. |
+| [Pointers](Pointers/) | Intermediate | Pointer arithmetic, dynamic arrays, set operations, matrices, and a phone directory. |
+| [Strings](Strings/) | Intermediate | Character insertion and deletion, replacements, letter and word counts, and palindrome checks. |
+| [Structures](Structures/) | Intermediate | Car records, a book catalog, searching, editing, and sorting records. |
+| [Preprocessor](Preprocessor/) | Intermediate | Macros and conditional compilation for arrays of different types. |
+| [OOP](OOP/) | Intermediate / advanced | Classes, constructors, copying, operator overloading, composition, and inheritance. |
+| [DataStructures](DataStructures/) | Intermediate / advanced | Queues, simulations, a binary tree, linked lists, and a template container. |
+| [Files](Files/) | Intermediate | File streams, a company directory, text analysis, and an exam question generator. |
+| [Exceptions](Exceptions/) | Intermediate | Exceptions during object construction. |
+| [STL](STL/) | Intermediate | The vector container, standard algorithms, comparators, lambdas, and file persistence. |
+| [Patterns](Patterns/) | Advanced | Strategy and Abstract Factory design patterns. |
+| [NumericalMethods](NumericalMethods/) | Advanced | Numerical solution of a differential equation using improved Euler and Runge–Kutta methods. |
 
-## Каталог работ
+## Exercise Catalog
 
-Названия ниже совпадают с именами файлов и папок. В проектах из нескольких файлов точка входа — main.cpp; соседние .cpp содержат реализации классов.
+The names below match the files and directories. For projects with multiple source files, `main.cpp` is the entry point; adjacent `.cpp` files implement the classes.
 
 ### Basics
 
@@ -77,29 +77,29 @@
 
 ### Preprocessor
 
-- [typed-array-macros](Preprocessor/typed-array-macros/main.cpp) — проект из нескольких файлов.
+- [typed-array-macros](Preprocessor/typed-array-macros/main.cpp) — project with multiple source files.
 
 ### OOP
 
-- [apartment-building](OOP/apartment-building/main.cpp) — проект из нескольких файлов.
-- [apartment-comparison](OOP/apartment-comparison/main.cpp) — проект из нескольких файлов.
+- [apartment-building](OOP/apartment-building/main.cpp) — project with multiple source files.
+- [apartment-comparison](OOP/apartment-comparison/main.cpp) — project with multiple source files.
 - [blackjack.cpp](OOP/blackjack.cpp)
-- [complex-number-operators](OOP/complex-number-operators/main.cpp) — проект из нескольких файлов.
-- [digital-counter](OOP/digital-counter/main.cpp) — проект из нескольких файлов.
-- [fraction-arithmetic](OOP/fraction-arithmetic/main.cpp) — проект из нескольких файлов.
-- [fraction-conversions-and-increment](OOP/fraction-conversions-and-increment/main.cpp) — проект из нескольких файлов.
-- [fraction-operators](OOP/fraction-operators/main.cpp) — проект из нескольких файлов.
+- [complex-number-operators](OOP/complex-number-operators/main.cpp) — project with multiple source files.
+- [digital-counter](OOP/digital-counter/main.cpp) — project with multiple source files.
+- [fraction-arithmetic](OOP/fraction-arithmetic/main.cpp) — project with multiple source files.
+- [fraction-conversions-and-increment](OOP/fraction-conversions-and-increment/main.cpp) — project with multiple source files.
+- [fraction-operators](OOP/fraction-operators/main.cpp) — project with multiple source files.
 - [matrix-class.cpp](OOP/matrix-class.cpp)
-- [overcoat-comparison](OOP/overcoat-comparison/main.cpp) — проект из нескольких файлов.
+- [overcoat-comparison](OOP/overcoat-comparison/main.cpp) — project with multiple source files.
 - [passport-inheritance.cpp](OOP/passport-inheritance.cpp)
-- [person-record](OOP/person-record/main.cpp) — проект из нескольких файлов.
-- [phone-book](OOP/phone-book/main.cpp) — проект из нескольких файлов.
-- [reservoir-catalog](OOP/reservoir-catalog/main.cpp) — проект из нескольких файлов.
-- [string-class-basics](OOP/string-class-basics/main.cpp) — проект из нескольких файлов.
-- [string-class-copy-constructors](OOP/string-class-copy-constructors/main.cpp) — проект из нескольких файлов.
-- [string-operators](OOP/string-operators/main.cpp) — проект из нескольких файлов.
+- [person-record](OOP/person-record/main.cpp) — project with multiple source files.
+- [phone-book](OOP/phone-book/main.cpp) — project with multiple source files.
+- [reservoir-catalog](OOP/reservoir-catalog/main.cpp) — project with multiple source files.
+- [string-class-basics](OOP/string-class-basics/main.cpp) — project with multiple source files.
+- [string-class-copy-constructors](OOP/string-class-copy-constructors/main.cpp) — project with multiple source files.
+- [string-operators](OOP/string-operators/main.cpp) — project with multiple source files.
 - [student-and-postgraduate.cpp](OOP/student-and-postgraduate.cpp)
-- [student-group](OOP/student-group/main.cpp) — проект из нескольких файлов.
+- [student-group](OOP/student-group/main.cpp) — project with multiple source files.
 - [time-arithmetic.cpp](OOP/time-arithmetic.cpp)
 - [vehicle-inheritance.cpp](OOP/vehicle-inheritance.cpp)
 - [zoo-management.cpp](OOP/zoo-management.cpp)
@@ -132,27 +132,27 @@
 
 ### Patterns
 
-- [abstract-factory-cars](Patterns/abstract-factory-cars/main.cpp) — проект из нескольких файлов.
+- [abstract-factory-cars](Patterns/abstract-factory-cars/main.cpp) — project with multiple source files.
 - [strategy-text-encryption.cpp](Patterns/strategy-text-encryption.cpp)
 
 ### NumericalMethods
 
 - [euler-and-runge-kutta.cpp](NumericalMethods/euler-and-runge-kutta.cpp)
 
-## Как открывать и запускать
+## Opening and Running Examples
 
-Каждый отдельный `.cpp` или каталог проекта следует рассматривать как самостоятельную учебную работу. Единой сборки всего архива нет: во многих файлах есть собственная функция `main`.
+Treat each standalone `.cpp` or project directory as a separate exercise. There is no single build for the entire archive: many files define their own `main` function.
 
-- Для работы из одного файла откройте нужный `.cpp` в отдельном C++-проекте.
-- Для проекта из нескольких файлов добавьте в сборку его `main.cpp` и необходимые соседние `.cpp`, оставив заголовки рядом.
-- В `Preprocessor/typed-array-macros/` две самостоятельные программы: `main.cpp` вместе с `function.cpp` демонстрирует обработку массивов через макросы; `macros.cpp` содержит отдельное меню арифметических макросов. Не объединяйте обе точки входа в одну программу.
-- Часть работ использует Windows API, `conio.h`, `Windows.h`, `void main()`, `gets_s` и другие особенности Visual C++/MSVC. Для сборки в другой среде могут потребоваться изменения, которые в архивные решения не вносились.
+- For a single-file exercise, open the relevant `.cpp` in a separate C++ project.
+- For a project with multiple source files, build its `main.cpp` with the required adjacent `.cpp` files and keep the headers alongside them.
+- `Preprocessor/typed-array-macros/` contains two independent programs: `main.cpp` together with `function.cpp` demonstrates array processing through macros; `macros.cpp` provides a separate arithmetic macro menu. Do not combine both entry points in one executable.
+- Some exercises use the Windows API, `conio.h`, `Windows.h`, `void main()`, `gets_s`, and other Visual C++/MSVC features. Building in another environment may require changes that have not been applied to these archived solutions.
 
-## Состояние материалов
+## Material Status
 
-- `Structures/car-and-library-records.cpp` содержит условие задания на комплексные числа без решения; отдельная реализация класса комплексных чисел с операторами находится в `OOP/complex-number-operators/`.
-- Решения в `DataStructures/singly-linked-list-operators.cpp`, `DataStructures/templated-doubly-linked-list.cpp` и `Exceptions/constructor-exceptions.cpp` сохранены закомментированными, как в исходниках.
-- `Files/exam-question-generator.cpp` читает `questions.txt` и записывает ответы в `result.txt`. Файл вопросов в архиве отсутствует; перед запуском его нужно предоставить в рабочем каталоге программы.
-- `STL/spruce-catalog-without-lambdas.cpp` и `STL/spruce-catalog-with-lambdas.cpp` — разные варианты работы с каталогом ёлок, сохранённые отдельно.
+- `Structures/car-and-library-records.cpp` includes a complex-number task description without a solution. A separate complex-number class with overloaded operators is available in `OOP/complex-number-operators/`.
+- The solutions in `DataStructures/singly-linked-list-operators.cpp`, `DataStructures/templated-doubly-linked-list.cpp`, and `Exceptions/constructor-exceptions.cpp` remain commented out, as in the original files.
+- `Files/exam-question-generator.cpp` reads `questions.txt` and writes answers to `result.txt`. The question file is not included in the archive and must be supplied in the program's working directory before running it.
+- `STL/spruce-catalog-without-lambdas.cpp` and `STL/spruce-catalog-with-lambdas.cpp` are separate versions of the spruce catalog exercise.
 
-Переименование файлов не означает проверку корректности решений или успешную сборку. Исходный код сохранён без исправлений.
+Renaming the files does not imply that the solutions have been validated or successfully compiled. The source code has been preserved without corrections.
