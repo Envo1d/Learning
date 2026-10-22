@@ -1,0 +1,71 @@
+﻿@{
+    ViewBag.Title = "Contacts";
+}
+@using ASP_HW1.Models
+
+
+<h2 style="text-align: center">@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-10">
+        <table class="table table-striped">
+            <thead>
+                <tr style="font-size: 18px;">
+                    <td style="width: 15%">Name</td>
+                    <td style="width: 15%">Number</td>
+                    <td style="width: 15%">Alt. Number</td>
+                    <td style="width: 15%">Email</td>
+                    <td style="width: 30%">Description</td>
+                    <td style="width: 10%"></td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null)
+                {
+
+                    {
+                        foreach (var contact in Model)
+                        {
+                            <tr>
+                                <td>@contact.Name</td>
+                                <td><a href="tel:@contact.Number">@contact.Number</a></td>
+                                <td><a href="tel:@contact.AlterNumber">@contact.AlterNumber</a></td>
+                                <td>@contact.Email</td>
+                                <td>@contact.Description</td>
+                                <td>
+                                    <form method="post" action="DeleteContact">
+                                        <input type="number" hidden name="idx" value="@Model.IndexOf(contact)" />
+                                        <div style="margin-top: 2%;"> <input type="submit" value="Delete" class="btn btn-danger active" /></div>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-2">
+        <h3>Add new contact</h3>
+        <form method="post" action="Contact">
+            <div><input type="text" placeholder="Name" name="name" required /></div>
+            <div style="margin-top: 2%"><input type="number" placeholder="Number" name="number" /></div>
+            <div style="margin-top: 2%"><input type="number" placeholder="Alt Number" name="altNumber" /></div>
+            <div style="margin-top: 2%"><input type="email" placeholder="Email" name="email" /></div>
+            <div style="margin-top: 2%;"><input type="text" name="desc" placeholder="Description"/></div>
+            <div style="margin-top: 2%;"> <input type="submit" value="Add" class="btn btn-success active" /></div>
+        </form>
+        <hr />
+        <h4>Load from file</h4>
+        <form asp-action="LoadContacts" asp-controller="Home" method="post" enctype="multipart/form-data">
+            <div><input type="file" placeholder="Load from" name="file" /></div>
+            <div style="margin-top: 2%;"> <input type="submit" value="Load" class="btn btn-success active" /></div>
+        </form>
+        <hr />
+        <h4>Save to file</h4>
+        <form action="SaveContacts" method="post">
+            <div><input type="text" placeholder="Example.txt" name="fileInfo" /></div>
+            <div style="margin-top: 2%;"> <input type="submit" value="Save" class="btn btn-success active" /></div>
+        </form>
+    </div>
+</div>

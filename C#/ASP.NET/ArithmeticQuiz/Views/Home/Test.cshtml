@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Test";
+}
+<div class="text-info text-center">
+    <h1 class="display-4">@ViewData["name"]</h1>
+</div>
+<div class="text-center">
+    <time class="display-4" id="timer" datetime="mm:ss">@ViewData["timer"]</time>
+    <h1 class="display-2">@ViewData["Task"]</h1>
+    <form asp-controller="Home" asp-action="Test" method="post">
+        <input type="number" name="answer" placeholder="Answer"/>
+        <input type="submit" value="Skip" asp-route-skip="true"/>
+        <input type="submit" value="Save Answer" asp-route-save="true" id="save"/>
+    </form>
+</div>

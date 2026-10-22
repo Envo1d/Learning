@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Practice
+{
+    class CarDb : DbContext
+    {
+        public DbSet<Car> cars { get; set; }
+    }
+}

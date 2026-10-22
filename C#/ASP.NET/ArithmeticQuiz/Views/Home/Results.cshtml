@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Results";
+}
+<h1>@ViewData["Title"]</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Mark</td>
+        </tr>
+    </thead>
+    <tbody>
+        @{ 
+            foreach (var item in ViewData["res"] as Dictionary<string, int>)
+            {
+                <tr>
+                    <td>@item.Key</td>
+                    <td>@item.Value</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

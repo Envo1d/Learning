@@ -1,0 +1,148 @@
+﻿<Window x:Class="Wpf1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf1"
+        mc:Ignorable="d"
+        Title="Calculator" Height="540" Width="335" ResizeMode="NoResize" Background="Gray" WindowStyle="ToolWindow" x:Name="window">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="DimGray"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="78"/>
+            <Setter Property="Margin" Value="1,0,0,0"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel>
+        <StackPanel Height="65"></StackPanel>
+        <TextBlock x:Name="txtBlSm" Height="25" Width="318" Foreground="White" TextAlignment="Right" FontSize="20" FontFamily="Cambria Math"></TextBlock>
+        <TextBlock x:Name="txtBlBg" Height="70" Text="0" TextAlignment="Right"  FontFamily="Cambria Math"  Width="305" Foreground="White" FontSize="55"></TextBlock>
+        <StackPanel Margin="0,3,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnPercent">%</Button>
+            <Button x:Name="btnCE" FontSize="16" Command="local:ButtonCommands.CEClick">CE
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.CEClick" CanExecute="CommandBinding_CanExecute" Executed="CEClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnC" FontSize="16" Command="local:ButtonCommands.CClick">C
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.CClick" CanExecute="CommandBinding_CanExecute" Executed="CClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnBackspace" Command="local:ButtonCommands.Backspace">←
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.Backspace" CanExecute="CommandBinding_CanExecute" Executed="BtnBackspaceClick"/>
+                </Button.CommandBindings>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnFract" FontSize="16">1/x</Button>
+            <Button x:Name="btnPow" FontSize="16">x²</Button>
+            <Button x:Name="btnSqrt" FontSize="16">√(x)</Button>
+            <Button x:Name="btnDivide" FontSize="25" Command="local:ButtonCommands.Operation">÷
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.Operation" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed"/>
+                </Button.CommandBindings>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnNumSeven" Background="Black" Command="local:ButtonCommands.NumericClicked">7
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnNumEight" Background="Black" Command="local:ButtonCommands.NumericClicked">8
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnNumNine" Background="Black" Command="local:ButtonCommands.NumericClicked">9
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnMultiply" FontSize="25" Command="local:ButtonCommands.Operation">×
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.Operation" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed"/>
+                </Button.CommandBindings>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnNumFour" Background="Black" Command="local:ButtonCommands.NumericClicked">4
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnNumFive" Background="Black" Command="local:ButtonCommands.NumericClicked">5
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnNumSix" Background="Black" Command="local:ButtonCommands.NumericClicked">6
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnSbtr" FontSize="25" Command="local:ButtonCommands.Operation">-
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.Operation" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed"/>
+                </Button.CommandBindings>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnNumOne" Background="Black" Command="local:ButtonCommands.NumericClicked">1
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnNumTwo" Background="Black" Command="local:ButtonCommands.NumericClicked">2
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnNumThree" Background="Black" Command="local:ButtonCommands.NumericClicked">3
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnPlus" FontSize="25" Command="local:ButtonCommands.Operation">+
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.Operation" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed"/>
+                </Button.CommandBindings>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnNumPM" Background="Black" Command="local:ButtonCommands.NumericClicked">+/-
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnNumZero" Background="Black" Command="local:ButtonCommands.NumericClicked">0
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnNumComa" Background="Black" FontSize="20" Command="local:ButtonCommands.NumericClicked">,
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.NumericClicked" CanExecute="CommandBinding_CanExecute" Executed="BtnNumClick"/>
+                </Button.CommandBindings>
+            </Button>
+            <Button x:Name="btnEquals" Background="DarkSlateBlue" FontSize="25" Command="local:ButtonCommands.EqualsClick">=
+                <Button.CommandBindings>
+                    <CommandBinding Command="local:ButtonCommands.EqualsClick" CanExecute="CommandBinding_CanExecute" Executed="BtnEqualsClick"/>
+                </Button.CommandBindings>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

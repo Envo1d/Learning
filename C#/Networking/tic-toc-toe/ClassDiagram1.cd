@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="tic_toc_toe.Game">
+    <Position X="10.25" Y="2.25" Width="2.75" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="tic_toc_toe.Game.PlayerType">
+        <TypeIdentifier>
+          <NewMemberFileName>Game.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+      <Enum Name="tic_toc_toe.Game.MessageType">
+        <TypeIdentifier>
+          <NewMemberFileName>Game.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IEAAQAAAoiH+EQcAAADDAAgCAMASIAgCAWQIASCBAEA=</HashCode>
+      <FileName>Game.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

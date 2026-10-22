@@ -1,0 +1,65 @@
+﻿@{
+    ViewBag.Title = "Notes";
+}
+@using ASP_HW1.Models
+@model List<Note>
+
+<h2 style="text-align: center">@ViewBag.Title</h2>
+
+    <div class="row">
+        <div class="col-md-10">
+            <table class="table table-striped">
+                <thead>
+                    <tr style="font-size: 18px;">
+                        <td style="width: 10%">Title</td>
+                        <td style="width: 70%">Text</td>
+                        <td style="width: 10%">Created At</td>
+                        <td style="width: 10%">Tags</td>
+                        <td style="width: 10%"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null)
+                    {
+
+                        {
+                            foreach (var note in Model)
+                            {
+                            <tr>
+                                <td>@note.Title</td>
+                                <td>@note.Text</td>
+                                <td>@note.CreatedAt</td>
+                                <td>@note.Tags</td>
+                                <td> <form method="post" action="Delete">
+                                    <input type="number" hidden name="idx" value="@Model.IndexOf(note)"/>
+<div style="margin-top: 2%;"> <input type="submit" value="Delete" class="btn btn-danger active" /></div>
+</form></td>
+                         </tr>
+                            }
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-2">
+            <h3>Add new note</h3>
+            <form method="post" action="Note">
+                <div><input type="text" placeholder="Title" name="title" required /></div>
+                <div style="margin-top: 2%;"><textarea placeholder="Text.." name="text"></textarea></div>
+                <div style="margin-top: 2%"><input type="text" placeholder="Tags" name="tags" /></div>
+                <div style="margin-top: 2%;"> <input type="submit" value="Add" class="btn btn-success active" /></div>
+            </form>
+            <hr />
+            <h4>Load from file</h4>
+            <form asp-action="Load" asp-controller="Home" method="post" enctype="multipart/form-data">
+                <div><input type="file" placeholder="Load from" name="file" /></div>
+                <div style="margin-top: 2%;"> <input type="submit" value="Load" class="btn btn-success active" /></div>
+            </form>
+            <hr />
+            <h4>Save to file</h4>
+            <form action="Save" method="post">
+                <div><input type="text" placeholder="Example.txt" name="fileInfo" /></div>
+                <div style="margin-top: 2%;"> <input type="submit" value="Save" class="btn btn-success active" /></div>
+            </form>
+        </div>
+    </div>

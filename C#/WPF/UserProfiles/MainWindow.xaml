@@ -1,0 +1,148 @@
+﻿<Window x:Class="WpfExam.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfExam"
+        mc:Ignorable="d"
+        Title="Employee Admin" Height="650" Width="900" 
+        AllowsTransparency="True" Background="Transparent"
+        WindowStyle="None" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Margin" Value="10"/>
+
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="20"
+                            BorderThickness="2" BorderBrush="Black">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="true">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Opacity" Value="0.4"/>
+                    <Setter Property="Foreground" Value="DeepSkyBlue"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="{x:Type ListBox}">
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Helvetica"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="27*"/>
+            <RowDefinition Height="110*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="115*"/>
+            <RowDefinition Height="25*"/>
+        </Grid.RowDefinitions>
+        <Border CornerRadius="10" Grid.RowSpan="6" Grid.ColumnSpan="6">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="CadetBlue"  Offset="0.1"/>
+                    <GradientStop Color="Aqua"  Offset="0.8"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="1" CornerRadius="10" Grid.ColumnSpan="6" Grid.Row="0">
+            <Grid Height="20" Background="AliceBlue" Opacity="0.5" MouseDown="Grid_MouseDown">
+                <Button Name="Close" Width="20" Height="20" Margin="10,0,10,0" Content="X" HorizontalAlignment="Right" Click="Close_Click"/>
+                <Button Name="Minimize" Width="20" Height="20" Margin="0,0,40,0" Content="_" HorizontalAlignment="Right" Click="Minimize_Click"/>
+            </Grid>
+        </Border>
+        <Label Content="Users" Margin="10" FontSize="18" FontWeight="Bold" Grid.Row="1"/>
+        <ListView Name="ListUsers" Grid.ColumnSpan="6" Grid.Row="2" Margin="5" SelectionChanged="List_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Title}" Width="80">Username</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Company}" Width="90">First Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Width="90">Last Name</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Width="90">Email</GridViewColumn>
+                    <GridViewColumn DisplayMemberBinding="{Binding Path=Price}" Width="90">Department</GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Grid.Column="6" Margin="10" FontSize="18" Content="{Binding ElementName=List, Path=Items.Count}" HorizontalContentAlignment="Right" Grid.Row="1"/>
+        <Button Name="btnNew" Grid.Column="5" Grid.Row="3" Content="New" Click="btnNew_Click"/>
+        <Button Name="btnDel" Grid.Column="4" Grid.Row="3" Content="Delete" Click="btnDel_Click"/>
+        <Button Name="btnProfileAdd" Grid.Row="6" Grid.Column="1" Content="Add User" IsEnabled="False" Click="btnProfileAdd_Click"/>
+        <Button Name="btnCancel" Grid.Row="6" Grid.Column="2" Content="Cancel" IsEnabled="False"/>
+        <Button Name="btnRolesAdd" Grid.Row="6" Grid.Column="4" Content="Add" IsEnabled="False"/>
+        <Button Name="btnRolesDel" Grid.Row="6" Grid.Column="5" Content="Remove" IsEnabled="False"/>
+        <ComboBox Name="cmbRoles" Grid.Row="6" Grid.Column="3" Margin="8" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="15" SelectedIndex="0"></ComboBox>
+        <Grid Grid.Row="4" Grid.ColumnSpan="3" IsEnabled="False" Name="gridInfo" DataContext="{Binding ElementName=ListUsers, Path=SelectedItem}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="22*"/>
+                <ColumnDefinition Width="37*"/>
+                <ColumnDefinition Width="16*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Content="User Profile" FontSize="15" FontWeight="Bold"/>
+            <Label Content="First Name:" FontSize="15" Margin="0,29,0,0" Grid.RowSpan="2"/>
+            <Label Content="Last Name:" FontSize="15" Grid.Row="1" Margin="0,29,0,0" Grid.RowSpan="2"/>
+            <Label Content="Email:" FontSize="15" Grid.Row="2" Margin="0,29,0,0" Grid.RowSpan="2"/>
+            <Label Content="User Name:" FontSize="15" Grid.Row="3" Margin="0,29,0,0" Grid.RowSpan="2"/>
+            <Label Content="Password" FontSize="15" Grid.Row="4" Margin="0,29,0,0" Grid.RowSpan="2"/>
+            <Label Content="Confirm Password:" FontSize="15" Grid.Row="5" Margin="0,29,0,0" Grid.RowSpan="2"/>
+            <Label Content="Department:" FontSize="15" Grid.Row="6" Margin="0,29,0,0" Grid.RowSpan="2"/>
+            <TextBox x:Name="txtFName" Grid.Column="1" Grid.Row="1" Margin="2" Grid.ColumnSpan="2" Text="{Binding Path=FirstName}"/>
+            <TextBox x:Name="txtLName" Grid.Column="1" Grid.Row="2" Margin="2" Grid.ColumnSpan="2" Text="{Binding Path=LastName}"/>
+            <TextBox x:Name="txtEmail" Grid.Column="1" Grid.Row="3" Margin="2" Grid.ColumnSpan="2" Text="{Binding Path=Email}"/>
+            <TextBox x:Name="txtUserName" Grid.Column="1" Grid.Row="4" Margin="2" Grid.ColumnSpan="2" Text="{Binding Path=UserName}"/>
+            <TextBox x:Name="txtPassword" Grid.Column="1" Grid.Row="5" Margin="2" Grid.ColumnSpan="2" Text="{Binding Path=Password}"/>
+            <TextBox x:Name="txtCPass" Grid.Column="1" Grid.Row="6" Margin="2" Grid.ColumnSpan="2" Text="{Binding Path=Password}"/>
+            <Label Grid.Column="3" Content="{Binding ElementName=txtUserName, Path=Text}" Grid.Row="0" FontSize="15"/>
+            <ComboBox Name="cmbDepart" Grid.Row="7" Grid.ColumnSpan="2" Grid.Column="1" FontSize="15" Margin="2"/>
+        </Grid>
+        <Grid Grid.Row="4" Grid.Column="3" Margin="5,0,0,0" Grid.ColumnSpan="3" Name="gridRoles" IsEnabled="False" DataContext="{Binding ElementName=ListUsers, Path=SelectedItem}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20*"/>
+                <RowDefinition Height="125*"/>
+            </Grid.RowDefinitions>
+            <Label Content="User Roles" FontSize="15" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal" Grid.Column="2">
+                <Label Content="{Binding ElementName=txtLName, Path=Text}" FontSize="15"/>
+                <Label Content="{Binding ElementName=txtFName, Path=Text}" FontSize="15"/>
+            </StackPanel>
+            <ListBox x:Name="lstRoles" Grid.Row="1" Grid.ColumnSpan="3" FontSize="15" ItemsSource="{Binding Path=Roles}"></ListBox>
+        </Grid>
+    </Grid>
+</Window>

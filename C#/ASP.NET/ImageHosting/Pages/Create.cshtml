@@ -1,0 +1,52 @@
+﻿@page
+@model ASP_HW5.Pages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Image</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Image.Title" class="control-label"></label>
+                <input asp-for="Image.Title" class="form-control" />
+                <span asp-validation-for="Image.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Tags</label>
+                <input type="text" id="tag" size="30" class="form-control" placeholder="New tag"/>
+                <button id="add" class="btn-info form-control">Add New Tag</button>
+                <br/>
+                <select id="select" name="tags[]" multiple class="selectpicker form-control">
+                    @foreach (var item in Model.Tags)
+                    {
+                        <option value="@item.Id">@item.Title</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="upload" class="control-label">File</label>
+                <div class="col-md-10">
+                    <input class="form-control" type="file" id="File" name="upload" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,61 @@
+﻿@page
+@model Front.Pages.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <form role="form" id="form-add">
+                <div class="form-group">
+                    <label class="control-label" for="fullname">Full Name</label>
+                    <input type="text" class="form-control" id="fullname" name="fullname" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="recordbook">Record Book</label>
+                    <input type="text" class="form-control" id="recordbook" name="recordbook" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="phone">Phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="course">Course</label>
+                    <input type="number" min="1" class="form-control" id="course" name="course" required>
+                </div>
+                <button id="save" type="button" class="btn btn-primary">Add student</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        const template = document.querySelector("#row-template");
+        const apiUrl = "@Model.ApiUrl";
+
+        $('#form-add').click((e) => e.preventDefault());
+
+        $("#save").click(() => {
+            let fullname = $("#fullname").val();
+            let recordbook = $("#recordbook").val();
+            let phone = $("#phone").val();
+            let course = parseInt($("#course").val());
+            $.ajax({
+                data: JSON.stringify({ fullname, recordbook, phone, course }),
+                dataType: "json",
+                url: apiUrl,
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            })
+                .done(student => {
+                    console.log(student);
+                    document.getElementById("form-add").reset();
+                })
+                .fail((xhr, err) => console.log(err));
+        });
+    </script>
+}

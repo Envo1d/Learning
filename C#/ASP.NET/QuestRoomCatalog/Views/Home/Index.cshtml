@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ASP_HW4.Domain.Entities.QuestRoom>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<!--<input type="text" id="Input" onkeyup="filter()" placeholder="Search for difficulty..">
+<select id="Select">
+    <option value="2">Difficulty</option>
+    <option value="3">Fear Level</option>
+    <option value="4">Players Number</option>
+</select>-->
+<form asp-action="Index" asp-controller="Home" method="post">
+    <select id="Select" name="diff" class="diff">
+        @{
+            foreach (var item in ViewData["diff"] as List<string>)
+            {
+                <option value="@item">@item</option>
+            }
+        }
+    </select>
+    <select id="Select" name="fl" class="fl" style="display: none">
+        @{
+            foreach (var item in ViewData["fl"] as List<string>)
+            {
+                <option value="@item">@item</option>
+            }
+        }
+    </select>
+    <select id="Select" name="pn" class="pn" style="display: none">
+        @{
+            foreach (var item in ViewData["pn"] as List<int>)
+            {
+                <option value="@item">@item</option>
+            }
+        }
+    </select>
+    <select id="MainSelect" name="filt">
+        <option value="diff">Difficulty</option>
+        <option value="fl">Fear Level</option>
+        <option value="pn">Players Number</option>
+    </select>
+    <input type="submit" class="btn btn-primary" value="Search" />
+</form>
+
+<table class="table" id="Table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Difficulty)
+            </th>
+            <th>
+                Fear Level
+            </th>
+            <th>
+                Players Number
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Difficulty.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FearLevel.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayersNumber.Number)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

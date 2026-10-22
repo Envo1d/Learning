@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Result";
+}
+<div class="text-info text-center">
+    <h1 class="display-4">@ViewData["name"] result</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <td>Question</td>
+                <td>Answer</td>
+                <td>Correct Answer</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{ foreach (var task in ViewData["tasks"] as List<List<string>>)
+                {
+<tr>
+    @foreach (var item in task)
+    {
+        <td>@item</td>
+    }
+</tr>
+                }
+               }
+        </tbody>
+    </table>
+    <h4>Mark: @ViewData["mark"]</h4>
+</div>

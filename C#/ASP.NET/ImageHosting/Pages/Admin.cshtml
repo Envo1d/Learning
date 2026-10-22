@@ -1,0 +1,66 @@
+﻿@page
+@model ASP_HW5.Pages.AdminModel
+
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<h1>Admin</h1>
+
+<div class="custom-control">
+    <form asp-page="./Admin" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Find by tag:
+                <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+                <input type="submit" value="Search" class="btn btn-primary" />
+            </p>
+        </div>
+    </form>
+</div>
+
+<table class="table">
+    <tbody>
+        @foreach (var item in Model.Image)
+        {
+        <tr>
+            <td class="card">
+                <div class="card-columns">
+                    Title: @Html.DisplayFor(modelItem => item.Title)
+                    <br />
+                    <div class="card-subtitle">
+                        <p>Tags:</p>
+                        @foreach (var tag in item.Tags)
+                        {
+                            <p>@tag.Title</p>
+                        }
+                    </div>
+                    @{
+                        <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(item.File.Content))" width="150px" />
+                    }
+                    <br />
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </div>   
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Image.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Image.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Admin"
+   asp-route-pageIndex="@(Model.Image.PageIndex - 1)"
+   class="btn btn-primary @prevDisabled"
+   asp-route-currentFilter="@Model.CurrentFilter">
+    Previous
+</a>
+<a asp-page="./Admin"
+   asp-route-pageIndex="@(Model.Image.PageIndex + 1)"
+   class="btn btn-primary @nextDisabled"
+   asp-route-currentFilter="@Model.CurrentFilter">
+    Next
+</a>

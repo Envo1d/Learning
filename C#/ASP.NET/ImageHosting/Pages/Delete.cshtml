@@ -1,0 +1,51 @@
+﻿@page
+@model ASP_HW5.Pages.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Image</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Image.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image.File)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Image.File.Id)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Image.Tags)
+        </dt>
+        <dd class="col-sm-10">
+            @foreach (var tag in Model.Image.Tags)
+            {
+                <p>@tag.Title</p>
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Image
+        </dt>
+        <dd class="col-sm-10">
+            @{
+                <img src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(Model.Image.File.Content))" width="300px" />
+            }
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Image.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Admin">Back to List</a>
+    </form>
+</div>

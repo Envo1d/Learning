@@ -1,0 +1,410 @@
+﻿<Window x:Class="Wpf1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf1"
+        mc:Ignorable="d"
+        Title="Calculator" Height="540" Width="335" ResizeMode="NoResize" Background="Gray" WindowStyle="ToolWindow">
+    <StackPanel>
+        <StackPanel Height="65"></StackPanel>
+        <TextBlock x:Name="txtBlSm" Height="25" Width="318" Foreground="White" TextAlignment="Right" FontSize="20" FontFamily="Cambria Math"></TextBlock>
+        <TextBlock x:Name="txtBlBg" Height="70" Text="0" TextAlignment="Right"  FontFamily="Cambria Math"  Width="305" Foreground="White" FontSize="55"></TextBlock>
+        <StackPanel Margin="0,3,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnPercent" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="18">%
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnCE" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="16">CE
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnC" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="16">C
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnBackspace" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="18">←
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnFract" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="16">1/x
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnPow" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="16">x²
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnSqrt" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="16">√(x)
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnDivide" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="25">÷
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnNumSeven" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">7
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnNumEight" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">8
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnNumNine" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">9
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnMultiply" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="25">×
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnNumFour" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">4
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnNumFive" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">5
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnNumSix" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">6
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnSbtr" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="25">-
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnNumOne" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">1
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnNumTwo" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">2
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnNumThree" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">3
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnPlus" Margin="1,0,0,0" Width="78" Background="DimGray" Foreground="White" FontSize="25">+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+        <StackPanel Margin="0,1,0,0" Width="318" Orientation="Horizontal" Height="55">
+            <Button x:Name="btnNumPM" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">+/-
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnNumZero" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="18">0
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnNumComa" Margin="1,0,0,0" Width="78" Background="Black" Foreground="White" FontSize="20">,
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnEquals" Margin="1,0,0,0" Width="78" Background="DarkSlateBlue" Foreground="White" FontSize="25">=
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border Background="{TemplateBinding Background}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </StackPanel>
+</Window>

@@ -1,0 +1,30 @@
+﻿<Window x:Class="Practice.Entrance"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Practice"
+        mc:Ignorable="d"
+        Title="Image Gallery 1.0 - Entrance" Height="348.649" Width="350" ResizeMode="NoResize" WindowStyle="ToolWindow" PreviewKeyDown="Window_PreviewKeyDown">
+    <Grid>
+        <Border BorderBrush="Blue" BorderThickness="2" Margin="7" CornerRadius="10" Padding="10">
+            <StackPanel>
+                <Label FontSize="15" Width="163">
+                    Image Gallery Entrance
+                </Label>
+                <StackPanel Margin="0,30,0,0">
+                    <Label Name="lLogin" FontSize="15" HorizontalAlignment="Left">Login</Label>
+                    <TextBox Name="Login" HorizontalAlignment="Left" Width="300" TextChanged="Login_TextChanged"  FontSize="18"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="0,30,0,0">
+                    <Label Name="lPassword" FontSize="15" HorizontalAlignment="Left">Password</Label>
+                    <TextBox Name="Password" FontSize="18" HorizontalAlignment="Left" TextChanged="Password_TextChanged"  Width="300"></TextBox>
+                </StackPanel>
+                <StackPanel Margin="0,30,0,0" Height="40" Orientation="Horizontal">
+                    <Button Name="Ok" Width="135" Margin="10,5,0,5" Click="Ok_Click">Ok</Button>
+                    <Button Name="Cancel" Width="135" Margin="10,5,0,5" Click="Cancel_Click">Cancel</Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

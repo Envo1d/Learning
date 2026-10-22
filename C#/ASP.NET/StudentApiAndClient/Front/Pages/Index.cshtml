@@ -1,0 +1,48 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Students List";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <table class="table table-bordered" id="book-table">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Full Name</th>
+                        <th>Record Book</th>
+                        <th>Phone</th>
+                        <th>Course</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    <script>
+        const template = document.querySelector("#row-template");
+        const apiUrl = "@Model.ApiUrl";
+
+        function add(student) {
+            const tr = $("<tr>").append(`<td>${student.id}</td><td>${student.fullName}</td><td>${student.recordBook}</td>
+<td>${student.phone}</td><td>${student.course}</td>
+<td><a href="?id=${student.id}&handler=Delete" id="delete" class="btn btn-danger">Delete</a> <a href="/Edit/?id=${student.id}" id="edit" class="btn btn-danger">Edit</a></td>`);
+            $('tbody').append(tr);
+        }
+
+        $(() => {
+            $.getJSON(apiUrl)
+                .done(students => {
+                    $("tbody").empty();
+                    students.forEach(b => add(b));
+                });
+        })
+    </script>
+}

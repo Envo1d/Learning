@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <form method="get" href="/?num=" asp-controller="Fibonacci">
+        <input type="number" placeholder="Enter number" name="num"/>
+        <input type="submit" value="Calculate"/>
+    </form>
+</div>
